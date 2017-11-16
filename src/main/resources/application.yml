@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: scratch,sample-data
+
+---
+
+spring:
+  profiles: scratch
+  datasource:
+    url: jdbc:hsqldb:mem:scratchdb
+  jpa:
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+        dialect: org.hibernate.dialect.HSQLDialect
+        hbm2ddl:
+          auto: create-drop
+        generate-ddl: true
+        event:
+          merge:
+            entity_copy_observer: allow
+    hibernate:
+      ddl-auto: create-drop
+      show-sql: true
+      format-sql: true
+
+hibernate:
+  show-sql: true
+  format-sql: true
+
+
+---
+
+
+
+
