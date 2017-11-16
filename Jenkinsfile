@@ -1,7 +1,18 @@
 // see https://dzone.com/refcardz/declarative-pipeline-with-jenkins for examples
 
-node('maven') {
-stage 'build'
-       openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
-}
 
+pipeline {
+  agent {
+    label 'maven'
+  }
+  stages {
+    stage("Checkout Code") {
+      steps {
+        checkout scm
+      }
+    }
+    stage("Build with Maven") {
+      openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
+    }
+  }
+}
