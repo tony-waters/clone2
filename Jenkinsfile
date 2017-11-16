@@ -1,5 +1,3 @@
-// see https://dzone.com/refcardz/declarative-pipeline-with-jenkins for examples
-
 try {
    timeout(time: 20, unit: 'MINUTES') {
       node('maven') {
