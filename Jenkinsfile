@@ -12,7 +12,7 @@ pipeline {
       }
     }
     stage("Build with Maven") {
-      openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
+      openshiftBuild(bldCfg: 'clone2-build', showBuildLogs: 'true')
     }
   }
 }
