@@ -5,7 +5,7 @@ try {
             checkout scm
         }
         stage('build') {
-          openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
+          openshiftBuild(buildConfig: 'clone2-build')
         }
       }
    }
