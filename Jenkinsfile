@@ -1,10 +1,13 @@
 try {
-   timeout(time: 20, unit: 'MINUTES') {
+   timeout(time: 5, unit: 'MINUTES') {
       node('maven') {
-          stage('build') {
-            openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
-          }
+        stage('Checkout'){
+            checkout scm
         }
+        stage('build') {
+          openshiftBuild(buildConfig: 'clone2-build', showBuildLogs: 'true')
+        }
+      }
    }
 } catch (err) {
    echo "in catch block"
